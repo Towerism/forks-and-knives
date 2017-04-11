@@ -1,6 +1,7 @@
 EXECUTABLE := forks-and-knives
 
 all: $(EXECUTABLE)
+CXXFLAGS ?= -std=c++11
 
 $(EXECUTABLE): main.o
 	$(CXX) $(CXXFLAGS) $^ -o $@
