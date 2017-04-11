@@ -35,7 +35,7 @@ Status_code parse_args(int argc, char *argv[]) {
     int option_index = 0;
     int c = getopt_long(argc, argv, "k", long_options, &option_index);
     if (c == -1)
-      break;
+      return Status_code::Error;
     switch (c) {
     case 'k':
       return Status_code::Minus_knives;
