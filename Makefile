@@ -1,7 +1,7 @@
 EXECUTABLE := forks-and-knives
+CXXFLAGS ?= -std=c++11
 
 all: $(EXECUTABLE)
-CXXFLAGS ?= -std=c++11
 
 $(EXECUTABLE): main.o
 	$(CXX) $(CXXFLAGS) $^ -o $@
