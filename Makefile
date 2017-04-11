@@ -6,11 +6,8 @@ CXXFLAGS ?= -std=c++11
 $(EXECUTABLE): main.o
 	$(CXX) $(CXXFLAGS) $^ -o $@
 
-%.o:
-	$(CXX) $(CXXFLAGS) -c $(@:.o=.cpp) -o $@
-
-%.cpp:
-	$(CXX) $(CXXFLAGS) -o $@
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
 	rm -rf *.o $(EXECUTABLE)
