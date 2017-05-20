@@ -28,3 +28,4 @@
 *.out
 *.app
 forks-and-knives
+/compile_commands.json
